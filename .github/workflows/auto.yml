@@ -1,11 +1,9 @@
 name: Update Repo
-
 on:
   push:
     paths:
       - 'debs/**.deb'
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,8 +17,9 @@ jobs:
         
       - name: 生成索引
         run: |
+          rm -f Packages Packages.bz2
           dpkg-scanpackages debs /dev/null > Packages
-          bzip2 -k Packages
+          bzip2 -k -f Packages
           
       - name: 推送到仓库
         run: |
