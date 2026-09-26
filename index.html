@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Genesis StatusBar 私人源</title>
+  <title>Niubiprass</title>
   <style>
     :root { color-scheme: dark; }
     body {
@@ -48,11 +48,11 @@
 <body>
   <main>
     <img class="icon" src="CydiaIcon.png" alt="repo icon">
-    <h1>Genesis StatusBar 私人源</h1>
-    <p>仅包含从 Genesis 3 提取的状态栏功能包。</p>
+    <h1>Niubiprass</h1>
+    <p>越狱软件源，当前收录 Genesis StatusBar。</p>
     <div class="card">
       <strong>源地址</strong>
-      <span class="url" id="repo-url">将用预览地址替换</span>
+      <span class="url" id="repo-url">https://hgfdal.github.io/Niubiprass/</span>
     </div>
     <div class="card">
       <strong>添加方法</strong>
@@ -70,7 +70,7 @@
   </main>
   <script>
     const url = location.origin + location.pathname.replace(/index\.html$/, "");
-    document.getElementById("repo-url").textContent = url;
+    document.getElementById("repo-url").textContent = url.replace(/\/?$/, "/");
   </script>
 </body>
 </html>
