@@ -15,6 +15,22 @@ Description: 激活码用户或需要激活码的用户安装这个，非激活�
 Author: SquidForce, Backup
 Name: SquidExtender(激活码版)
 
+Package: com.aptzh
+Version: 1.3-3+debug
+Architecture: iphoneos-arm64e
+Maintainer: Custom
+Installed-Size: 240
+Pre-Depends: rootless-compat(>= 0.9)
+Filename: debs/com.aptzh_1.3-3+debug_iphoneos-arm64e(1).deb
+Size: 42060
+MD5sum: 166459fe1e28902af2ca1c6646b7f768
+SHA1: 55695bfceb13ecf6852eba83aea60d98cefa3114
+SHA256: 7ca02cce9e992551914a8d6e0e5094dafe3983e2926c8a9650338bc46f1adad2
+Section: Tweaks
+Description: Sileo软件源刷新、dpkg安装日志完整汉化，覆盖全部报错与输出文本
+Author: Custom
+Name: Sileo APT/DPKG汉化
+
 Package: com.huayuarc.speedster
 Version: 2.1.3-2
 Architecture: iphoneos-arm64e
