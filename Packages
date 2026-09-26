@@ -131,16 +131,16 @@ Author: opa334
 Name: Crane
 
 Package: com.wkk.systembox
-Version: 1.4-7
+Version: 1.4-7.3
 Architecture: iphoneos-arm64e
 Maintainer: wkk
 Installed-Size: 1572
 Depends: mobilesubstrate, preferenceloader
-Filename: debs/com.wkk.systembox_1.4-7_iphoneos-arm64e.deb
-Size: 291700
-MD5sum: 78fa8ab0ea430924252a5c6e09cb9077
-SHA1: 64dade262c4261c462e18ff3eac9fda7f66b5db2
-SHA256: 76e397ece650b63d7b9e80b7b9125b0c564ba5b7649d4305c3510895cc8962a5
+Filename: debs/com.wkk.systembox_1.4-7.3_iphoneos-arm64e.deb
+Size: 292860
+MD5sum: df56e55f0acc6d908d790070fad71e1d
+SHA1: 8bbaf1a5507db5258e8753d483d3a3ccbc96fc14
+SHA256: f8e0eef3a9aa1f6b39cabe77873c0398a028bb93b88f831e21d92666c199b872
 Section: Tweaks
 Description: cool
 Author: wkk
