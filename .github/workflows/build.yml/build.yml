@@ -1,11 +1,9 @@
 name: Generate APT Index
-
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'debs/**.deb'
-  workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,15 +11,14 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: 安装 dpkg 工具并生成索引
+      - name: 扫描并生成索引
         run: |
-          sudo apt-get update && sudo apt-get install -y dpkg-dev
+          sudo apt-get update
+          sudo apt-get install -y dpkg-dev
           dpkg-scanpackages debs /dev/null > Packages
           bzip2 -k Packages
-      - name: 自动提交并推送
-        run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add Packages Packages.bz2
-          git commit -m "自动更新 Packages 索引" || echo "没有新变化"
+          git commit -m "自动更新索引" || echo "无变化"
           git push
