@@ -17,6 +17,7 @@ jobs:
         
       - name: 生成索引
         run: |
+          chmod -R +r debs/
           rm -f Packages Packages.bz2 Release Packages.gz
           dpkg-scanpackages debs /dev/null > Packages
           bzip2 -k -f Packages
