@@ -17,15 +17,37 @@ jobs:
         
       - name: 生成索引
         run: |
-          rm -f Packages Packages.bz2
+          rm -f Packages Packages.bz2 Release Packages.gz
           dpkg-scanpackages debs /dev/null > Packages
           bzip2 -k -f Packages
+          
+      - name: 生成 Release 文件
+        run: |
+          {
+            echo "Origin: Niubiprass"
+            echo "Label: Niubiprass"
+            echo "Suite: stable"
+            echo "Version: 1.0"
+            echo "Codename: ios"
+            echo "Architectures: iphoneos-arm64"
+            echo "Components: main"
+            echo "Description: Niubiprass"
+            echo "MD5Sum:"
+            echo " $(md5sum Packages | cut -d' ' -f1) $(stat -c%s Packages) Packages"
+            echo " $(md5sum Packages.bz2 | cut -d' ' -f1) $(stat -c%s Packages.bz2) Packages.bz2"
+            echo "SHA1:"
+            echo " $(sha1sum Packages | cut -d' ' -f1) $(stat -c%s Packages) Packages"
+            echo " $(sha1sum Packages.bz2 | cut -d' ' -f1) $(stat -c%s Packages.bz2) Packages.bz2"
+            echo "SHA256:"
+            echo " $(sha256sum Packages | cut -d' ' -f1) $(stat -c%s Packages) Packages"
+            echo " $(sha256sum Packages.bz2 | cut -d' ' -f1) $(stat -c%s Packages.bz2) Packages.bz2"
+          } > Release
           
       - name: 推送到仓库
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add Packages Packages.bz2
-          git commit -m "自动更新索引" || echo "没有新变化"
+          git add Packages Packages.bz2 Release
+          git commit -m "自动更新索引和Release" || echo "没有新变化"
           git pull --rebase origin main
           git push origin main
