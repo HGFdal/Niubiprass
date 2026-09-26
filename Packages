@@ -31,6 +31,23 @@ Description: Sileo软件源刷新、dpkg安装日志完整汉化，覆盖全部�
 Author: Custom
 Name: Sileo APT/DPKG汉化
 
+Package: com.bvm.wuzeililiang
+Version: 1.0.1-1
+Architecture: iphoneos-arm64e
+Maintainer: BVN
+Installed-Size: 328
+Depends: firmware (>= 15.0), mobilesubstrate
+Filename: debs/com.bvm.wuzeililiang_1.0.1-1_iphoneos-arm64e.deb
+Size: 38100
+MD5sum: 04a86be5dacc7b092396fad0149d354a
+SHA1: 0d3bae08a3d9b5f513e194124fdfc45438385d2b
+SHA256: d74a79f75baae62cf7514a781c9884e5c980c2b5187ca30da3319315710d03be
+Section: Tweaks
+Description: 乌贼三件套通杀插件，内置 DCrack 离线授权（本地生成、绑定设备、无需激活服务器）
+Author: BVN
+Icon: https://huayuarc.github.io/icon/wuzeililiang.jpg
+Name: 乌贼本地离线授权
+
 Package: com.huayuarc.speedster
 Version: 2.1.3-2
 Architecture: iphoneos-arm64e
