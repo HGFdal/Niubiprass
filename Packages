@@ -1,3 +1,36 @@
+Package: cn.octoforce.squidextender
+Version: 3.7.4
+Architecture: iphoneos-arm64e
+Maintainer: SquidForce, Backup
+Installed-Size: 9988
+Depends: mobilesubstrate, preferenceloader, com.opa334.libsandy
+Conflicts: com.squidforce.squidextender
+Filename: debs/cn.octoforce.squidextender_3.7.4_iphoneos-arm64e.deb
+Size: 4399280
+MD5sum: fd1e26e7c7555ae2509078b7ce248e8d
+SHA1: bed5dd2d7ad0519540843fafdc9cda390cfdc9f5
+SHA256: c716e9c863b389f628980832e37ee81c844d064540c9ee1b15cfa0fd845d0778
+Section: Tweaks
+Description: 激活码用户或需要激活码的用户安装这个，非激活码用户不要安装！！Do not install if you do not have an activation code!!! Extend your keyboard to be more POWERFULL!
+Author: SquidForce, Backup
+Name: SquidExtender(激活码版)
+
+Package: com.huayuarc.speedster
+Version: 2.1.3-2
+Architecture: iphoneos-arm64e
+Maintainer: Huayuarc
+Installed-Size: 476
+Depends: firmware (>= 13.0), preferenceloader, mobilesubstrate
+Filename: debs/com.huayuarc.speedster_2.1.3-2_iphoneos-arm64e.deb
+Size: 59188
+MD5sum: f721c225d2f9af31f3bf6bf98330b139
+SHA1: 27b4270b067a2559170374bf8ec27a3492ff6c22
+SHA256: 944e4fe8c2aeaaf3fe9e9a67259f85243d9f0f3b5da365cedb48d1f4b4ad87d6
+Section: Tweaks
+Description: 更快的动画 + 系统增强：通知不亮锁屏/禁用App资源库/禁锁屏手电&相机/禁快门声/移除解锁延迟/锁屏来电拒接/应用动画方向/彻关Wi-Fi蓝牙/设备朝下锁屏/通话录音静音/Watch配对/禁用OTA/网格后台/iPad Dock/画中画/禁用企业签名。
+Author: Hoangdus&Unknown
+Name: Speedster
+
 Package: com.itznebbs.genesis3statusbar
 Version: 1.5
 Architecture: iphoneos-arm64
@@ -14,4 +47,86 @@ Section: Tweaks
 Description: Status bar features extracted from Genesis 3. Custom carrier, hide status items, modern battery.
 Author: Nebbs
 Name: Genesis StatusBar
-Tag: role::sileo
+
+Package: com.opa334.choicy
+Version: 1.5.4-2
+Architecture: iphoneos-arm64e
+Maintainer: opa334 <opa334@protonmail.com>
+Installed-Size: 1104
+Depends: mobilesubstrate, com.opa334.altlist (>= 1.0.4), preferenceloader
+Conflicts: com.opa334.choicy
+Filename: debs/com.opa334.choicy_1.5.4-2_iphoneos-arm64e.deb
+Size: 163400
+MD5sum: 0dedc182b2896fd9d08e542d2c9a7457
+SHA1: 7f8845c8384a0cd938f06cb64637ede869a760a1
+SHA256: df5e9770c7ae6e2af4d833e73a60a6bc8d6590bd93c7485d0ecc5b7a319fe9b8
+Section: Tweaks
+Description: 高级插件配置器，可单独为每个程序启用/禁用插件等。
+Author: opa334 <opa334@protonmail.com>
+Name: Choicy屏蔽越狱-Roothide
+
+Package: com.susudear.screencore
+Version: 1.1.8
+Architecture: iphoneos-arm64e
+Maintainer: SuSu
+Installed-Size: 2836
+Depends: mobilesubstrate, preferenceloader, com.opa334.altlist
+Filename: debs/com.susudear.screencore_1.1.8_iphoneos-arm64e.deb
+Size: 440672
+MD5sum: 9e421bca26c2f77a8dcdc9a68c50d2b8
+SHA1: 2cce69728e7c733819ae24d018bc0557fcbd2161
+SHA256: 782becaf01bd6b0ace05cc22b06f63e0b5c7d78bda4040dceb8da5452747bba5
+Section: Tweaks
+Description: 分屏而已
+Author: SuSu
+Name: ScreenCore
+
+Package: com.wkk.copylogx
+Version: 1.1-9
+Architecture: iphoneos-arm64e
+Maintainer: wkk
+Installed-Size: 1828
+Depends: firmware (>= 15.0), firmware (<< 18.0), mobilesubstrate, preferenceloader
+Filename: debs/com.wkk.copylogx_1.1-9_iphoneos-arm64e.deb
+Size: 277980
+MD5sum: fa582c9a7d64fe61e12985ed12c6ee3a
+SHA1: b8c7b4522cb509662c7deb79fe0b9acbfbf11d26
+SHA256: 4555ddc1f8a34757ab79b885e04b7a6caaa31604c4baa5a9e3fac4877ab5db4c
+Section: Tweaks
+Description: cool！
+Author: wkk
+Name: CopylogX
+
+Package: com.wkk.crane
+Version: 1.3.17
+Architecture: iphoneos-arm64e
+Maintainer: opa334
+Installed-Size: 3252
+Depends: firmware (>= 11.0), mobilesubstrate, preferenceloader, com.opa334.altlist (>= 1.0.5), com.opa334.libsandy (>= 1.1.6), com.opa334.libundirect (>= 1.1.4) | firmware (<< 14.0)
+Conflicts: com.opa334.cranelite, com.opa334.crane13lite, com.opa334.crane13, com.rpgfarm.slices3, com.subdiox.slices2, com.expetelek.slices
+Filename: debs/com.wkk.crane_1.3.17_iphoneos-arm64e.deb
+Size: 612064
+MD5sum: ec450b9e4584935399bdbcc48a3a2cea
+SHA1: f238d186dfa24086f4f3bb02b81eb5fa54cf6d67
+SHA256: 005b2fb3503dd177e4172ff7907bb8453e8434a56700a016bfffa9467188c018
+Section: Tweaks
+Description: 正版砸壳备份。
+Author: opa334
+Name: Crane
+
+Package: com.wkk.systembox
+Version: 1.4-7
+Architecture: iphoneos-arm64e
+Maintainer: wkk
+Installed-Size: 1572
+Depends: mobilesubstrate, preferenceloader
+Filename: debs/com.wkk.systembox_1.4-7_iphoneos-arm64e.deb
+Size: 291700
+MD5sum: 78fa8ab0ea430924252a5c6e09cb9077
+SHA1: 64dade262c4261c462e18ff3eac9fda7f66b5db2
+SHA256: 76e397ece650b63d7b9e80b7b9125b0c564ba5b7649d4305c3510895cc8962a5
+Section: Tweaks
+Description: cool
+Author: wkk
+Name: SystemX
+
