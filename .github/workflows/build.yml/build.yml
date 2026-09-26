@@ -13,7 +13,7 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: 安装 dpkg 工具并扫描生成索引
+      - name: 安装 dpkg 工具并生成索引
         run: |
           sudo apt-get update && sudo apt-get install -y dpkg-dev
           dpkg-scanpackages debs /dev/null > Packages
