@@ -1,9 +1,11 @@
 name: Update Repo
+
 on:
   push:
     paths:
       - 'debs/**.deb'
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,12 +13,20 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - run: |
-          sudo apt-get update && sudo apt-get install -y dpkg-dev
+      
+      - name: 安装依赖
+        run: sudo apt-get update && sudo apt-get install -y dpkg-dev
+        
+      - name: 生成索引
+        run: |
           dpkg-scanpackages debs /dev/null > Packages
           bzip2 -k Packages
+          
+      - name: 推送到仓库
+        run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase
           git add Packages Packages.bz2
-          git commit -m "Auto update" || echo "No changes"
+          git commit -m "自动更新索引" || echo "没有新变化"
           git push
