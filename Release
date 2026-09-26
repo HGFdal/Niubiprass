@@ -1,0 +1,21 @@
+Origin: Genesis StatusBar
+Label: Genesis StatusBar
+Suite: stable
+Version: 1.0
+Codename: ios
+Date: Sat, 26 Sep 2026 10:25:05 UTC
+Architectures: iphoneos-arm64
+Components: main
+Description: Private jailbreak repo for Genesis StatusBar
+MD5Sum:
+ 4cdc621d7b7f8caac34081df284f10d9 640 Packages
+ 4afec7889770343469594b9f8da7e3c1 437 Packages.gz
+ cd7c3257704e470fe9aac76298de6beb 467 Packages.bz2
+SHA1:
+ 898fba5656f4227d0f959877293148129a955d37 640 Packages
+ 23f6c6134ce8bda05c6e02cdea5ae438867d2c09 437 Packages.gz
+ b43f588a001512e40be3bd1040e90d63d048525a 467 Packages.bz2
+SHA256:
+ 510853cba434b3452a701d0edd788178b439e00a0d842f2be058fccc13412805 640 Packages
+ 1fe90fd7f0be4a1cb8bfd32f072ed9c14aa852d5572adc773bf02dee2fc6a935 437 Packages.gz
+ 131126c403ce4d390d2a76c0d8e6f14d3a564390505cc7894d3e515627a90700 467 Packages.bz2

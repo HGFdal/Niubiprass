@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Genesis StatusBar 私人源</title>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b0d12;
+      color: #e8ecf4;
+      line-height: 1.55;
+    }
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+    img.icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+    }
+    h1 { font-size: 28px; margin: 16px 0 8px; }
+    p { color: #b7c0d0; }
+    .card {
+      background: #151922;
+      border: 1px solid #2a3140;
+      border-radius: 16px;
+      padding: 18px;
+      margin: 18px 0;
+    }
+    code, .url {
+      display: block;
+      word-break: break-all;
+      background: #0b0d12;
+      border-radius: 10px;
+      padding: 12px;
+      color: #9ad0ff;
+      font-size: 14px;
+    }
+    ol { padding-left: 20px; color: #d5dbe6; }
+    a { color: #7cc4ff; }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="icon" src="CydiaIcon.png" alt="repo icon">
+    <h1>Genesis StatusBar 私人源</h1>
+    <p>仅包含从 Genesis 3 提取的状态栏功能包。</p>
+    <div class="card">
+      <strong>源地址</strong>
+      <span class="url" id="repo-url">将用预览地址替换</span>
+    </div>
+    <div class="card">
+      <strong>添加方法</strong>
+      <ol>
+        <li>打开 Sileo / Zebra / Cydia</li>
+        <li>添加软件源，粘贴上方地址</li>
+        <li>刷新后安装 Genesis StatusBar</li>
+      </ol>
+      <p>依赖：PreferenceLoader、Phoenix（com.itznebbs.phoenix &gt;= 1.0.4）。不要和原版 Genesis 3 同时安装。</p>
+    </div>
+    <div class="card">
+      <strong>直接下载</strong>
+      <p><a href="debs/com.itznebbs.genesis3statusbar_1.5_iphoneos-arm64.deb">com.itznebbs.genesis3statusbar_1.5_iphoneos-arm64.deb</a></p>
+    </div>
+  </main>
+  <script>
+    const url = location.origin + location.pathname.replace(/index\.html$/, "");
+    document.getElementById("repo-url").textContent = url;
+  </script>
+</body>
+</html>
