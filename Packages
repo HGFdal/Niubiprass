@@ -146,3 +146,21 @@ Description: cool
 Author: wkk
 Name: SystemX
 
+Package: com.xybp888.callassist15.roothiden
+Version: 2.5.1
+Architecture: iphoneos-arm64e
+Maintainer: xybp888
+Depends: firmware (>= 15.0), ellekit, preferenceloader,com.opa334.libsandy
+Filename: debs/com.xybp888.callassist15.roothiden_2.5.1_iphoneos-arm64e.deb
+Size: 6064664
+MD5sum: 80b96ff57b0f522bc8ad16ab38382ae3
+SHA1: 51a3044f59785d92cd0e4cd891cf3a0041940132
+SHA256: a7fead9e61f56cdb005ca9d43d8c1cbea22dec6151a3ac296b77cab2aa636a04
+Section: Tweaks
+Priority: optional
+Description: 电话助手授权版本,T9双卡选卡拨号键盘,短信双卡选卡,通话录音,来去电归属地,黑名单,骚扰拦截,状态栏图标替换,时间格式修改,常用小功能等强大插件
+Author: xybp888
+Depiction: https://apt.htv123.com/view/627
+Name: 电话助手iOS15-正式版(Roothide)
+Sileodepiction: https://apt.htv123.com/sileo/627
+
