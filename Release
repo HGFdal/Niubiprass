@@ -1,0 +1,17 @@
+Origin: Niubiprass
+Label: Niubiprass
+Suite: stable
+Version: 1.0
+Codename: ios
+Architectures: iphoneos-arm64
+Components: main
+Description: Niubiprass
+MD5Sum:
+ 5532120b21f3dea38aeafa57f4c68a44 5011 Packages
+ abfd505809a8e7e948232535eb466e05 2372 Packages.bz2
+SHA1:
+ 2604859b8fe38102378245b9fa0431a2a1ff3553 5011 Packages
+ a79ac41e715da54081576f486f6cdf2d8855102c 2372 Packages.bz2
+SHA256:
+ 95084003afd1ce141b457a0696144c9eb077a7d0f1134aa257a5511e19fb64a6 5011 Packages
+ 1aa5b5f4d7aeb06fcc10a1cfac975cd0cd28546bcfde7922b53084a69ff170cb 2372 Packages.bz2
