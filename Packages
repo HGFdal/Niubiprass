@@ -81,31 +81,6 @@ Description: Status bar features extracted from Genesis 3. Custom carrier, hide 
 Author: Nebbs
 Name: Genesis StatusBar
 
-Package: com.jaysuen.evocenter
-Version: 2.5.0-beta.29
-Architecture: iphoneos-arm64e
-Maintainer: chatgpt5.6（sol）， JaySuen
-Depends: mobilesubstrate, com.opa334.ccsupport, firmware (>= 15.0)
-Conflicts: com.jaysuen.ccflex16
-Replaces: com.jaysuen.ccflex16
-Filename: debs/com.jaysuen.evocenter_2.5.0-beta.29_iphoneos-arm64e.deb
-Size: 379328
-MD5sum: c0b1848dd1239f0dc1cba1618e712b73
-SHA1: 4147e92c73115a304d006d8259b42f9fd98274a9
-SHA256: 7681eb2e89ce1d7bcf4eeca3be2490bc34342ffefdab7c67abbe7c9b2ff960c6
-Section: Tweaks
-Homepage: https://eleveny123.github.io/EvoCenter/
-Description: 为旧系统带来类似ios18的现代化控制中心体验。
- 调节模块尺寸、自定义圆角大小和控制中心背景透明度。
- 本版本恢复控制中心顶部电源菜单（注销/安全模式/用户空间重启/重启/关机）最低支持 iOS 15.0（iOS 15-17）。
- 反馈Bug和建议：在酷安 App 搜索 JAYSuen私信我，或搜索 Evo Center 找到最新帖子评论。
- 向ccborder16、horizontalsliders、bettercc致敬，感谢其设计与实现带来的启发。
-Author: chatgpt5.6（sol）， JaySuen
-Depiction: https://eleveny123.github.io/EvoCenter/
-Icon: https://eleveny123.github.io/EvoCenter/assets/icon.png
-Name: Evo Center自用版
-Sileodepiction: https://eleveny123.github.io/EvoCenter/native.json?v=2.5.0-beta.6
-
 Package: com.opa334.choicy
 Version: 1.5.4-2
 Architecture: iphoneos-arm64e
