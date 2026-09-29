@@ -1,0 +1,33 @@
+name: Auto Update Tweaks
+
+# 每天北京时间 09:00 自动检查插件更新（UTC 01:00）
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:        # 也支持手动触发
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 安装依赖
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y dpkg-dev bzip2
+
+      - name: 运行更新脚本
+        run: python3 update_repo.py
+        # 沙箱外（美国节点）可直连 havoc/bigboss，无需代理
+
+      - name: 汇总结果
+        run: |
+          echo "### 插件更新结果" >> $GITHUB_STEP_SUMMARY
+          git log -1 --pretty=format:"%h %s" >> $GITHUB_STEP_SUMMARY || true

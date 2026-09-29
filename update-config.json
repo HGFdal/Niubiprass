@@ -1,0 +1,49 @@
+{
+  "_comment": "Niubiprass 源 - 插件更新配置。改这里即可增删监控的源与插件。",
+  "_usage": "python3 update_repo.py [--dry-run] [--only 包名]；GitHub Actions 会自动调用",
+  "_version": 3,
+
+  "sources": [
+    { "name": "susubaby",   "url": "https://repo.susubaby.cn" },
+    { "name": "htv123",     "url": "https://apt.htv123.com" },
+    { "name": "opa334",     "url": "https://raw.githubusercontent.com/opa334/opa334.github.io/master", "proxy": true },
+    { "name": "eleveny123", "url": "https://raw.githubusercontent.com/elevenY123/elevenY123.github.io/main", "proxy": true },
+    { "name": "lclrc",      "url": "https://raw.githubusercontent.com/lclrc/lclrc.github.io/main/repo", "proxy": true },
+    { "name": "wkkyy00",    "url": "https://raw.githubusercontent.com/wkkyy00/wkkyy00.github.io/main", "proxy": true },
+    { "name": "huayuarc",   "url": "https://raw.githubusercontent.com/huayuarc/huayuarc.github.io/main", "proxy": true },
+    { "name": "havoc",      "url": "https://repo.havoc.app" },
+    { "name": "chariz",     "url": "https://repo.chariz.com" },
+    { "name": "packix",     "url": "https://repo.packix.com" },
+    { "name": "dynastic",   "url": "https://repo.dynastic.co" },
+    { "name": "bigboss",    "url": "https://apt.thebigboss.org/repofiles/cydia" }
+  ],
+
+  "monitor": [
+    { "package": "com.susudear.screencore",            "arch": "iphoneos-arm64e" },
+    { "package": "com.xybp888.callassist15.roothiden", "arch": "iphoneos-arm64e" },
+    { "package": "com.opa334.choicy",                  "arch": "iphoneos-arm64e" },
+    { "package": "com.wkk.crane",                      "arch": "iphoneos-arm64e" },
+    { "package": "com.wkk.copylogx",                   "arch": "iphoneos-arm64e",
+      "altNames": ["com.wkk.copylogx111", "com.wkk.CopylogX"] },
+    { "package": "com.wkk.systembox",                  "arch": "iphoneos-arm64e",
+      "altNames": ["com.wkk.systemx111", "com.wkk.Systemxxxxx", "com.wkk.SystemX"] },
+    { "package": "cn.octoforce.squidextender",         "arch": "iphoneos-arm64e" },
+    { "package": "com.bvm.wuzeililiang",               "arch": "iphoneos-arm64e" },
+    { "package": "com.huayuarc.speedster",             "arch": "iphoneos-arm64e" },
+    { "package": "com.jaysuen.evocenter",              "arch": "iphoneos-arm64e" },
+    { "package": "com.ntm.notifymanager",              "arch": "iphoneos-arm64" },
+    { "package": "com.itznebbs.genesis3",              "arch": "iphoneos-arm64" },
+    { "package": "com.itznebbs.genesis3statusbar",     "arch": "iphoneos-arm64" },
+    { "package": "com.aptzh",                          "arch": "iphoneos-arm64e" }
+  ],
+
+  "_notes": {
+    "无法自动更新的包": [
+      "com.huayuarc.speedster — 作者源已无此包（huayuarc 源现无 Speedster）",
+      "com.jaysuen.evocenter — 你的 beta.29 比作者源 beta.2 新",
+      "com.ntm.notifymanager — 你的 2.3.11 比作者 GitHub 2.3.8 新",
+      "com.aptzh — Sileo 汉化，群内分发无公开源"
+    ],
+    "havoc_bigboss": "havoc.app / thebigboss 在本沙箱网络不通，需在 GitHub Actions(美国节点)或本地直连；GitHub Actions 中会正常抓取"
+  }
+}
