@@ -120,23 +120,6 @@ Author: chatgpt5.6（sol）， JaySuen
 Icon: https://eleveny123.github.io/EvoCenter/assets/icon.png
 Name: Evo Center自用版
 
-Package: com.niubiprass.sourceinfo
-Version: 1.0.1
-Architecture: iphoneos-arm64
-Maintainer: Niubiprass <niubiprass@users.noreply.github.com>
-Filename: debs/com.niubiprass.sourceinfo_1.0.1_iphoneos-arm64.deb
-Size: 682
-MD5sum: 14a7e04fe026958102770965ae8d890e
-SHA1: 70e6576be08db59485a17c39c2db6d4babc51961
-SHA256: 0905256c129dd5349232a85ae569f1f93c9f0410ae03373907093c2299c9c0e8
-Section: 源使用说明
-Homepage: https://niubiprass.github.io/
-Description: 本源使用说明与常见问题。点开查看添加方法、支持架构与注意事项。
-Author: Niubiprass
-Depiction: https://niubiprass.github.io/info.html
-Icon: https://niubiprass.github.io/assets/icon.png
-Name: 源使用说明
-
 Package: com.ntm.notifymanager
 Version: 2.3.11
 Architecture: iphoneos-arm64
