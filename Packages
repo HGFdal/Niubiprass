@@ -104,6 +104,21 @@ Author: chatgpt5.6（sol）， JaySuen
 Icon: https://eleveny123.github.io/EvoCenter/assets/icon.png
 Name: Evo Center自用版
 
+Package: com.ntm.notifymanager
+Version: 2.3.11
+Architecture: iphoneos-arm64
+Maintainer: yzdmm2024
+Depends: mobilesubstrate (>= 0.9.5000), preferenceloader
+Filename: debs/com.ntm.notifymanager_2.3.11_iphoneos-arm64.deb
+Size: 105108
+MD5sum: e377234f0fe2b6e8c0c1e0638879b20a
+SHA1: 99bded922cca619cf1bfe5466aa8d2442920ad4d
+SHA256: e46f3db5a7831ab63f4f42ee84f743ddc78ecc0d9dfa189f8a6c7e01236c9e31
+Section: Tweaks
+Description: 通知管理：注入SpringBoard拦截通知展示，按分类(用户/巨魔/系统)管理每个App通知与网络。总开关+锁定屏幕/通知中心/横幅/声音/标记子开关，增强功能：仅隐藏角标、隐藏预览、后台自动断网、关键词过滤、应用分组、模式快照、筛选；网络策略(打开wifi/流量/wifi+流量/断网)同步系统蜂窝设置，支持搜索、批量控制、单应用重置、配置导入导出、邮件反馈
+Author: yzdmm2024
+Name: 通知管理
+
 Package: com.opa334.choicy
 Version: 1.5.4-2
 Architecture: iphoneos-arm64e
