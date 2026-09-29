@@ -1,10 +1,10 @@
 {
   "class": "FeaturedBannersView",
-  "itemSize": "{390, 219}",
+  "itemSize": "{358, 201}",
   "itemCornerRadius": 0,
   "banners": [
     {
-      "url": "https://niubiprass.github.io/assets/banner_icons.png",
+      "url": "https://niubiprass.github.io/assets/banner_icons2.png",
       "title": "",
       "subtitle": "",
       "hideShadow": true,
