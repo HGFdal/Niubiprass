@@ -153,19 +153,20 @@ Author: opa334 <opa334@protonmail.com>
 Name: Choicy屏蔽越狱-Roothide
 
 Package: com.susudear.screencore
-Version: 1.1.8
+Version: 2.0.1
 Architecture: iphoneos-arm64e
 Maintainer: SuSu
-Installed-Size: 2836
+Installed-Size: 2944
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist
-Filename: debs/com.susudear.screencore_1.1.8_iphoneos-arm64e.deb
-Size: 440672
-MD5sum: 9e421bca26c2f77a8dcdc9a68c50d2b8
-SHA1: 2cce69728e7c733819ae24d018bc0557fcbd2161
-SHA256: 782becaf01bd6b0ace05cc22b06f63e0b5c7d78bda4040dceb8da5452747bba5
+Filename: debs/com.susudear.screencore_2.0.1_iphoneos-arm64e.deb
+Size: 461544
+MD5sum: 3f9a4908138f3c85d075c43605045318
+SHA1: dd02b9e11e56c53cf6566743062f8e6f4c23974d
+SHA256: 8b858e2fa97518f0afd7d7d577470946c98e4e51b742108ff680e3266a010ec6
 Section: Tweaks
 Description: 分屏而已
 Author: SuSu
+Icon: https://repo.susubaby.cn/icons/ScreenCore.png
 Name: ScreenCore
 
 Package: com.wkk.copylogx
