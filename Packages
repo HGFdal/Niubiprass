@@ -64,6 +64,22 @@ Description: 更快的动画 + 系统增强：通知不亮锁屏/禁用App资源
 Author: Hoangdus&Unknown
 Name: Speedster
 
+Package: com.itznebbs.genesis3
+Version: 1.5
+Architecture: iphoneos-arm64
+Maintainer: Nebbs
+Installed-Size: 3512
+Depends: firmware (>= 15.0), preferenceloader, com.itznebbs.phoenix (>= 1.0.4)
+Filename: debs/com.itznebbs.genesis3_1.5_iphoneos-arm64.deb
+Size: 1171224
+MD5sum: 0839045809c627ee38a25de183b6ce75
+SHA1: 67948f15ee86ce7f86c1179ea83268cc1e390734
+SHA256: 42e8fd894c325a3f2f1e2f62fee4a421443537f7214fc17b7c5b30324b0857c9
+Section: Tweaks
+Description: The culmination of something beautiful!
+Author: Nebbs
+Name: Genesis 3
+
 Package: com.itznebbs.genesis3statusbar
 Version: 1.5
 Architecture: iphoneos-arm64
@@ -103,6 +119,22 @@ Description: 为旧系统带来类似ios18的现代化控制中心体验。
 Author: chatgpt5.6（sol）， JaySuen
 Icon: https://eleveny123.github.io/EvoCenter/assets/icon.png
 Name: Evo Center自用版
+
+Package: com.niubiprass.sourceinfo
+Version: 1.0.0
+Architecture: iphoneos-arm64
+Maintainer: Niubiprass <niubiprass@users.noreply.github.com>
+Filename: debs/com.niubiprass.sourceinfo_1.0.0_iphoneos-arm64.deb
+Size: 664
+MD5sum: 721ce5bf1a94ace3b0cdc2e1e83bb2ba
+SHA1: 8642f995899e4f4fede5267b1179765adb7374a2
+SHA256: dd58ba57313d23c81edfe663b784570f205e70b1b12c5c1cb217ae4558f460dc
+Section: 源使用说明
+Homepage: https://niubiprass.github.io/
+Description: 本源使用说明与常见问题。点开查看添加方法、支持架构与注意事项。
+Author: Niubiprass
+Depiction: https://niubiprass.github.io/info.html
+Name: 源使用说明
 
 Package: com.ntm.notifymanager
 Version: 2.3.11

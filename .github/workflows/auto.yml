@@ -1,9 +1,11 @@
 name: Update Repo
 on:
   push:
+    # 原为 'debs/**.deb'，该 glob 在 Actions 中匹配不稳定，易漏触发
     paths:
-      - 'debs/**.deb'
+      - 'debs/**'
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,44 +13,52 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: 安装依赖
         run: sudo apt-get update && sudo apt-get install -y dpkg-dev
-        
+
       - name: 生成索引
         run: |
-          sudo chmod -R 755 debs/
-          sudo rm -f Packages Packages.bz2 Release Packages.gz
-          sudo dpkg-scanpackages debs /dev/null > Packages
-          sudo bzip2 -k -f Packages
-          
+          rm -f Packages Packages.gz Packages.bz2 Release
+          dpkg-scanpackages debs /dev/null > Packages
+          gzip -k -9 -f Packages
+          bzip2 -k -f Packages
+
       - name: 生成 Release 文件
         run: |
-          sudo chmod 644 Packages Packages.bz2
           {
             echo "Origin: Niubiprass"
             echo "Label: Niubiprass"
             echo "Suite: stable"
             echo "Version: 1.0"
             echo "Codename: ios"
-            echo "Architectures: iphoneos-arm64"
+            echo "Date: $(date -u -R)"
+            # 必须同时声明 arm64e，否则 rootless 包会被包管理器过滤掉
+            echo "Architectures: iphoneos-arm64 iphoneos-arm64e"
             echo "Components: main"
-            echo "Description: Niubiprass"
-            echo "MD5Sum:"
-            echo " $(md5sum Packages | cut -d' ' -f1) $(stat -c%s Packages) Packages"
-            echo " $(md5sum Packages.bz2 | cut -d' ' -f1) $(stat -c%s Packages.bz2) Packages.bz2"
-            echo "SHA1:"
-            echo " $(sha1sum Packages | cut -d' ' -f1) $(stat -c%s Packages) Packages"
-            echo " $(sha1sum Packages.bz2 | cut -d' ' -f1) $(stat -c%s Packages.bz2) Packages.bz2"
-            echo "SHA256:"
-            echo " $(sha256sum Packages | cut -d' ' -f1) $(stat -c%s Packages) Packages"
-            echo " $(sha256sum Packages.bz2 | cut -d' ' -f1) $(stat -c%s Packages.bz2) Packages.bz2"
+            echo "Description: Niubiprass jailbreak repo"
+            for H in MD5Sum SHA1 SHA256; do
+              echo "$H:"
+              case "$H" in
+                MD5Sum) S=md5sum ;;
+                SHA1)   S=sha1sum ;;
+                SHA256) S=sha256sum ;;
+              esac
+              for F in Packages Packages.gz Packages.bz2; do
+                echo " $($S "$F" | cut -d' ' -f1) $(stat -c%s "$F") $F"
+              done
+            done
           } > Release
-          
-      - name: 推送到仓库
+
+      - name: 提交并推送
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add Packages Packages.bz2 Release
-          git commit -m "自动更新索引和Release" || echo "没有新变化"
-          git push -f origin main
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Packages Packages.gz Packages.bz2 Release
+          if git diff --cached --quiet; then
+            echo "索引无变化，跳过提交"
+          else
+            git commit -m "chore: 自动更新 APT 索引"
+            # 不使用 -f：强制推送会静默覆盖他人提交
+            git push origin "${GITHUB_REF_NAME:-main}"
+          fi

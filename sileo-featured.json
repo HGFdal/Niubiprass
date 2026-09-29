@@ -2,5 +2,16 @@
   "class": "FeaturedBannersView",
   "itemSize": "{263, 148}",
   "itemCornerRadius": 10,
-  "banners": []
+  "banners": [
+    {
+      "url": "https://niubiprass.github.io/assets/banner.png",
+      "title": "",
+      "subtitle": "",
+      "hideShadow": false,
+      "action": {
+        "class": "OpenAction",
+        "url": "https://niubiprass.github.io/info.html"
+      }
+    }
+  ]
 }

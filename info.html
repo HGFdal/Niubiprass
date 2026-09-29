@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Niubiprass 源使用说明</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0d12; --card: #151922; --line: #2a3140;
+      --text: #e8ecf4; --muted: #b7c0d0; --accent: #7cc4ff; --gold: #e8b85c;
+    }
+    body { margin: 0; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", sans-serif; line-height: 1.6; }
+    main { max-width: 680px; margin: 0 auto; padding: 28px 18px 60px; }
+    .hero { text-align: center; padding: 18px 0 6px; }
+    .hero img { width: 84px; border-radius: 18px; }
+    h1 { font-size: 22px; margin: 12px 0 4px; }
+    .hero p { margin: 0; color: var(--muted); font-size: 13px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; margin: 14px 0; }
+    h2 { font-size: 16px; margin: 0 0 10px; color: var(--gold); }
+    ol, ul { margin: 0; padding-left: 22px; color: var(--muted); }
+    li { margin: 6px 0; }
+    .url { display: block; word-break: break-all; background: var(--bg); border-radius: 10px;
+      padding: 10px 12px; color: var(--accent); font-size: 14px; margin-top: 8px;
+      font-family: ui-monospace, Menlo, monospace; }
+    .tag { display: inline-block; font-size: 11px; padding: 2px 9px; border-radius: 999px; margin-right: 6px; margin-top: 6px; }
+    .t-blue { background: #10233a; color: #7cc4ff; border: 1px solid #24476e; }
+    .t-green { background: #123024; color: #6ee7a8; border: 1px solid #1e5c3f; }
+    .t-gold { background: #2a2415; color: #e8c46e; border: 1px solid #5c4a1e; }
+    p { color: var(--muted); font-size: 14px; margin: 8px 0; }
+    strong { color: var(--text); }
+    .warn { color: #e8c46e; }
+    footer { text-align: center; color: #5f6980; font-size: 12px; margin-top: 28px; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="hero">
+    <img src="assets/icon.png" alt="Niubiprass">
+    <h1>Niubiprass 源使用说明</h1>
+    <p>iOS 越狱软件源 · niubiprass.github.io</p>
+  </div>
+
+  <div class="card">
+    <h2>① 支持的环境</h2>
+    <span class="tag t-green">rootless（arm64e）</span>
+    <span class="tag t-gold">rootful（arm64）</span>
+    <p>本源插件以 <strong>rootless / Roothide</strong> 为主，部分为 rootful 版本，请按自己的越狱类型选择安装。安装时若提示不兼容，说明该包不适用于你的环境。</p>
+  </div>
+
+  <div class="card">
+    <h2>② 添加本源</h2>
+    <ol>
+      <li>打开 <strong>Sileo / Zebra / Cydia</strong></li>
+      <li>进入「软件源」→「编辑」→「添加」</li>
+      <li>粘贴下方地址并确认</li>
+    </ol>
+    <span class="url">https://niubiprass.github.io/</span>
+  </div>
+
+  <div class="card">
+    <h2>③ 注意事项</h2>
+    <ul>
+      <li><span class="warn">Genesis 3 与 Genesis StatusBar 功能重叠，二选一安装，不要同时装。</span></li>
+      <li>SquidExtender（激活码版）、电话助手等需要授权的插件，请自行联系原作者获取授权。</li>
+      <li>安装后若出现白图标或安全模式，先卸载冲突插件再重启 SpringBoard。</li>
+      <li>本源不提供盗版，仅收录个人测试与常用工具。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>④ 常见问题</h2>
+    <ul>
+      <li><strong>刷新源失败？</strong>检查网络是否可访问 GitHub，或稍后重试。</li>
+      <li><strong>搜不到某个插件？</strong>确认你的越狱架构与包架构匹配（rootless 设备搜不到 rootful 包）。</li>
+      <li><strong>想反馈问题？</strong>到 GitHub 仓库提 Issue：<span class="url" style="font-size:12px">https://github.com/Niubiprass/Niubiprass.github.io</span></li>
+    </ul>
+  </div>
+
+  <footer>Niubiprass · 本页由源索引同步维护</footer>
+</main>
+</body>
+</html>
