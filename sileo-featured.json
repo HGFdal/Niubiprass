@@ -8,10 +8,7 @@
       "title": "",
       "subtitle": "",
       "hideShadow": false,
-      "action": {
-        "class": "OpenAction",
-        "url": "https://niubiprass.github.io/info.html"
-      }
+      "action": "https://niubiprass.github.io/info.html"
     }
   ]
 }
