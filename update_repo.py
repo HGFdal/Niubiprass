@@ -193,6 +193,37 @@ def main():
         else:
             skipped.append((pid, arch, f"已最新 ({cur['version']})"))
 
+    # 2.5 autoAdd：把「尚未收录」的新插件首次收进源
+    auto_add = cfg.get("autoAdd", [])
+    added_note = []
+    if auto_add:
+        log(f"\n--- autoAdd 新插件检查（{len(auto_add)} 个）---")
+        for item in auto_add:
+            pid, arch = item["package"], item["arch"]
+            if ONLY and pid != ONLY: continue
+            if (pid, arch) in loc:
+                log(f"  · {pid:44s} 已在源中，转常规更新"); continue
+            alt = item.get("altNames", [])
+            want_src = item.get("from")
+            pool = {want_src: ext[want_src]} if (want_src and want_src in ext) else ext
+            best_ver, best_src, best_entry, best_pid = None, None, None, None
+            for name, idx in pool.items():
+                for pid_ in [pid] + alt:
+                    for a in (arch, arch.replace("arm64e", "arm64"), arch.replace("arm64", "arm64e")):
+                        for entry in idx.get((pid_, a), []):
+                            v = entry.get("Version")
+                            if not best_ver or version_gt(v, best_ver):
+                                best_ver, best_src, best_entry, best_pid = v, name, entry, pid_
+            if not best_ver:
+                log(f"  × {pid:44s} 外部源未找到，跳过"); continue
+            log(f"  + {pid:44s} 新增 {best_ver}   [{best_src}]")
+            added_note.append({"pid": pid, "arch": arch, "version": best_ver,
+                               "src": best_src, "entry": best_entry, "isNew": True})
+            updates.append({"pid": pid, "arch": arch, "from": "(新增)",
+                            "to": best_ver, "src": best_src, "entry": best_entry,
+                            "src_pid": best_pid, "isNew": True})
+        log("")
+
     log("--- 检查结果 ---")
     if updates:
         for u in updates:
@@ -224,7 +255,7 @@ def main():
         log(f"  ↓ {u['pid']} {u['to']}  ({u['src']})")
         if not download(url, tmp, proxy=("raw.githubusercontent.com" in url)):
             log(f"    ! 下载失败，跳过"); continue
-        # 删除同 package+arch 的旧文件
+        # 删除同 package+arch 的旧文件（新增包没有旧文件）
         old = loc.get((u["pid"], u["arch"]))
         if old and old["file"] != ext_name:
             op = os.path.join(DEBS, old["file"])
@@ -240,7 +271,12 @@ def main():
     subprocess.run(["git", "config", "user.name", "Niubiprass"], cwd=ROOT)
     subprocess.run(["git", "config", "user.email", "Niubiprass@users.noreply.github.com"], cwd=ROOT)
     subprocess.run(["git", "add", "-A"], cwd=ROOT)
-    msg = "chore(auto): 更新插件 " + ", ".join(f"{u['pid']}→{u['to']}" for u in updates)
+    new_p = [u for u in updates if u.get("isNew")]
+    upd_p = [u for u in updates if not u.get("isNew")]
+    parts = []
+    if upd_p: parts.append("更新 " + ", ".join(f"{u['pid']}→{u['to']}" for u in upd_p))
+    if new_p: parts.append("新增 " + ", ".join(f"{u['pid']}@{u['to']}" for u in new_p))
+    msg = "chore(auto): " + "；".join(parts)
     subprocess.run(["git", "commit", "-q", "-m", msg], cwd=ROOT)
     r = subprocess.run(["git", "push", "origin", "main"], cwd=ROOT, capture_output=True, text=True)
     log("推送：" + (r.stdout + r.stderr).strip().split("\n")[-1])

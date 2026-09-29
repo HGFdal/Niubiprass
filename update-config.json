@@ -37,6 +37,11 @@
     { "package": "com.aptzh",                          "arch": "iphoneos-arm64e" }
   ],
 
+  "autoAdd": [
+    { "package": "com.itznebbs.genesis4", "arch": "iphoneos-arm64e", "from": "havoc" },
+    { "package": "com.itznebbs.genesis4", "arch": "iphoneos-arm64",  "from": "havoc" }
+  ],
+
   "_notes": {
     "无法自动更新的包": [
       "com.huayuarc.speedster — 作者源已无此包（huayuarc 源现无 Speedster）",
