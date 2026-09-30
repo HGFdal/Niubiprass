@@ -176,10 +176,10 @@ Maintainer: wkk
 Installed-Size: 1828
 Depends: firmware (>= 15.0), firmware (<< 18.0), mobilesubstrate, preferenceloader
 Filename: debs/com.wkk.copylogx_1.1-9_iphoneos-arm64e.deb
-Size: 302522
-MD5sum: 71c20664a438745b9984576cbfc29b43
-SHA1: c542f41f13d09a75467d935c3954013aa2a44189
-SHA256: 0299c8409b49463ddad860096a5094379aad6e868b8fdc31c3969822db7f2539
+Size: 277980
+MD5sum: fa582c9a7d64fe61e12985ed12c6ee3a
+SHA1: b8c7b4522cb509662c7deb79fe0b9acbfbf11d26
+SHA256: 4555ddc1f8a34757ab79b885e04b7a6caaa31604c4baa5a9e3fac4877ab5db4c
 Section: Tweaks
 Description: cool！
 Author: wkk
@@ -209,10 +209,10 @@ Maintainer: wkk
 Installed-Size: 1572
 Depends: mobilesubstrate, preferenceloader
 Filename: debs/com.wkk.systembox_1.4-7.3_iphoneos-arm64e.deb
-Size: 323968
-MD5sum: 6428ee00927959e3c5ae51d1c51368be
-SHA1: 275815e96b5fd5e98c82d7dd0fbcd2f34581bb52
-SHA256: fa09996a288e4dbd41f79a33df6d4153cf0f273828c71f441fd372ab4f38549a
+Size: 292860
+MD5sum: df56e55f0acc6d908d790070fad71e1d
+SHA1: 8bbaf1a5507db5258e8753d483d3a3ccbc96fc14
+SHA256: f8e0eef3a9aa1f6b39cabe77873c0398a028bb93b88f831e21d92666c199b872
 Section: Tweaks
 Description: cool
 Author: wkk
