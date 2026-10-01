@@ -15,7 +15,7 @@ Niubiprass 源 - 插件自动更新脚本
     4. 与本地 debs/ 里的版本比较，有新版就下载、替换
     5. 重算 Packages / Packages.gz / Packages.bz2 / Release，提交推送
 """
-import os, re, sys, json, gzip, bz2, shutil, hashlib, subprocess, urllib.request, urllib.error
+import os, re, sys, json, gzip, bz2, shutil, subprocess, urllib.request, urllib.error
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DEBS = os.path.join(ROOT, "debs")
@@ -76,15 +76,14 @@ def version_gt(v1, v2):
     return r.returncode == 0
 
 def local_packages():
-    """扫描 debs/ 里的本地包"""
+    """扫描 debs/ 里的本地包（权限无关，避免 000 权限导致误判为缺失）"""
+    from build_index import read_control_fields
     out = {}
     for fn in sorted(os.listdir(DEBS)):
         if not fn.endswith(".deb"): continue
         p = os.path.join(DEBS, fn)
         try:
-            raw = subprocess.run(["dpkg-deb", "-f", p],
-                                 capture_output=True, text=True, timeout=30).stdout
-            d = dict(re.findall(r"^([A-Z][\w-]*): (.*)$", raw, re.M))
+            d = read_control_fields(p)
             pid, ver, arch = d.get("Package", ""), d.get("Version", ""), d.get("Architecture", "")
             if pid: out[(pid, arch)] = {"file": fn, "version": ver}
         except Exception as e:
@@ -107,31 +106,9 @@ def download(url, dest, proxy=False):
     return False
 
 def rebuild_index():
-    """重算 Packages / gz / bz2 / Release"""
-    os.chdir(ROOT)
-    pkgs = subprocess.run(["dpkg-scanpackages", "debs", "/dev/null"],
-                          capture_output=True, text=True).stdout
-    with open("Packages", "w") as f: f.write(pkgs)
-    with open("Packages.gz", "wb") as f:
-        f.write(gzip.compress(pkgs.encode(), 9))
-    with open("Packages.bz2", "wb") as f:
-        f.write(bz2.compress(pkgs.encode(), 9))
-    lines = [
-        "Origin: Niubiprass", "Label: Niubiprass", "Suite: stable", "Version: 1.0",
-        "Codename: ios", "Architectures: iphoneos-arm64 iphoneos-arm64e",
-        "Components: main", "Description: Niubiprass 自用源",
-    ]
-    for h in ("MD5Sum", "SHA1", "SHA256"):
-        lines += ["", f"{h}:"]
-        for fn in ("Packages", "Packages.gz", "Packages.bz2"):
-            data = open(fn, "rb").read()
-            size = len(data)
-            if h == "MD5Sum":   digest = hashlib.md5(data).hexdigest()
-            elif h == "SHA1":   digest = hashlib.sha1(data).hexdigest()
-            else:               digest = hashlib.sha256(data).hexdigest()
-            lines.append(f" {digest} {size} {fn}")
-    open("Release", "w").write("\n".join(lines) + "\n")
-    return len(re.findall(r"^Package:", pkgs, re.M))
+    """重算 Packages / gz / bz2 / Release（复用 build_index，逻辑唯一）"""
+    from build_index import build
+    return build()
 
 def main():
     cfg = json.load(open(CONFIG, encoding="utf-8"))

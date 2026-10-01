@@ -1,10 +1,18 @@
 name: Update Repo
+
+# 只要仓库有任何 push（网页上传 / git push / 任意目录丢入 .deb）都会重建索引；
+# 每天再兜底跑一次，防止个别事件遗漏导致索引与实际包不一致。
 on:
   push:
-    # 原为 'debs/**.deb'，该 glob 在 Actions 中匹配不稳定，易漏触发
-    paths:
-      - 'debs/**'
+    branches:
+      - '**'
+  schedule:
+    - cron: '0 2 * * *'
   workflow_dispatch:
+
+concurrency:
+  group: repo-index-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -13,52 +21,29 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: 安装依赖
-        run: sudo apt-get update && sudo apt-get install -y dpkg-dev
-
-      - name: 生成索引
-        run: |
-          rm -f Packages Packages.gz Packages.bz2 Release
-          dpkg-scanpackages debs /dev/null > Packages
-          gzip -k -9 -f Packages
-          bzip2 -k -f Packages
-
-      - name: 生成 Release 文件
-        run: |
-          {
-            echo "Origin: Niubiprass"
-            echo "Label: Niubiprass"
-            echo "Suite: stable"
-            echo "Version: 1.0"
-            echo "Codename: ios"
-            echo "Date: $(date -u -R)"
-            # 必须同时声明 arm64e，否则 rootless 包会被包管理器过滤掉
-            echo "Architectures: iphoneos-arm64 iphoneos-arm64e"
-            echo "Components: main"
-            echo "Description: Niubiprass jailbreak repo"
-            for H in MD5Sum SHA1 SHA256; do
-              echo "$H:"
-              case "$H" in
-                MD5Sum) S=md5sum ;;
-                SHA1)   S=sha1sum ;;
-                SHA256) S=sha256sum ;;
-              esac
-              for F in Packages Packages.gz Packages.bz2; do
-                echo " $($S "$F" | cut -d' ' -f1) $(stat -c%s "$F") $F"
-              done
-            done
-          } > Release
+      - name: 生成索引（收拢任意路径的 .deb 并重建）
+        # 不再依赖 dpkg-scanpackages：它会在非 root 环境读取 000 权限的
+        # control 文件时报 Permission denied 并使整个扫描失败。
+        run: python3 build_index.py
 
       - name: 提交并推送
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add Packages Packages.gz Packages.bz2 Release
+          git add -A
           if git diff --cached --quiet; then
             echo "索引无变化，跳过提交"
-          else
-            git commit -m "chore: 自动更新 APT 索引"
-            # 不使用 -f：强制推送会静默覆盖他人提交
-            git push origin "${GITHUB_REF_NAME:-main}"
+            exit 0
           fi
+          git commit -m "chore: 自动更新 APT 索引 [skip ci]"
+          for i in 1 2 3; do
+            if git push origin "HEAD:${GITHUB_REF_NAME:-main}"; then
+              exit 0
+            fi
+            echo "推送失败，重试前先同步远端..."
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME:-main}" || true
+          done
+          echo "推送多次失败"; exit 1
