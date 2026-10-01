@@ -3,21 +3,19 @@ Label: Niubiprass
 Suite: stable
 Version: 1.0
 Codename: ios
+Date: Thu, 01 Oct 2026 13:42:08 +0000
 Architectures: iphoneos-arm64 iphoneos-arm64e
 Components: main
-Description: Niubiprass 自用源
-
+Description: Niubiprass jailbreak repo
 MD5Sum:
- bba02ac9a2c387a2472b3d6600ca4818 10582 Packages
- 4b7ba71b6db1cafecf1e50ca84ec9cb7 4887 Packages.gz
- c686f9002e5448cfb734d36fa05dd2ac 4663 Packages.bz2
-
+ ab0e5c85eef83c7080fb4726e9480d11 940 Packages
+ 656fcab0c199672e57c8a8be06def9ec 516 Packages.gz
+ 32f4ff60f81788d9b6a9c33a0bfd9450 589 Packages.bz2
 SHA1:
- 7ec7e4a8df5cf1c360dc079ad373fd07ff8da7aa 10582 Packages
- 55c59d663d03c1200ec1a63c9141d31b4af40373 4887 Packages.gz
- 47da8f2dddba383fd2920def18bdb1f1458ca227 4663 Packages.bz2
-
+ 63b59e6d1ebe7667d82ced9a28773acf609532ba 940 Packages
+ bb3504f61346cb1db8c1f4676b859e74a6295a3b 516 Packages.gz
+ ab6ca7413614ed116b33172da1ea2cb720674207 589 Packages.bz2
 SHA256:
- bc4620217e148db5a34e0d7b38cf6b66e92f05803c2e2300b188c102b034304c 10582 Packages
- 7d1ca43da3f9bf8fcb7ccf9e34c348858bafd2ef7e10cf86f3e21a9fd19ec7b4 4887 Packages.gz
- e736b20ace3ef3f27e7412390ee0653a514666b3057a9e7c3d22ed7df4462242 4663 Packages.bz2
+ 87279bb0efb92a4118d41033e6a55f6640fdd3e70029cc1bb8b851f530b3c725 940 Packages
+ 4ca2c091cc277433fdf9112feb5b2f78e411d963ade376925485a3f1a1f37094 516 Packages.gz
+ d98dc0c88c13195def8fbc8daf58455a5c3bf835e94e366814c9f0eb98233350 589 Packages.bz2
