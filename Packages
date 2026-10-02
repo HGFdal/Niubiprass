@@ -48,6 +48,23 @@ MD5sum: 04a86be5dacc7b092396fad0149d354a
 SHA1: 0d3bae08a3d9b5f513e194124fdfc45438385d2b
 SHA256: d74a79f75baae62cf7514a781c9884e5c980c2b5187ca30da3319315710d03be
 
+Package: com.go.mango
+Name: mango（免授权）
+Description: 为 iPhone 补上分屏与多任务能力：手势呼出分屏、液态玻璃毛玻璃视觉、底部弹层与多选浮层、应用库搜索与 Dock、横幅与时钟组件等，全部功能可在设置面板中逐项开关。本插件仅供个人学习研究与测试使用，安装即视为自愿承担风险，作者不对任何使用后果负责。
+Maintainer: go
+Author: go
+Section: Tweaks
+Depends: mobilesubstrate
+Architecture: iphoneos-arm64e
+Version: 1.0-beta7-4-nb1
+Installed-Size: 3284
+Pre-Depends: rootless-compat(>= 0.9)
+Filename: debs/mango-1.0-beta7-4-nb1_iphoneos-arm64e.deb
+Size: 817584
+MD5sum: 1619e922c936cad889db9b7542a4fac9
+SHA1: 1b19a263074a3156124c4866aedeb6b0846cc329
+SHA256: f5ac4a4aacc556b2bb7e597a6ad77e6364e7565e0c86538f58dc58a81c2ab4a2
+
 Package: com.huayuarc.cputhermal
 Name: CPU 解除温控
 Author: 391160
