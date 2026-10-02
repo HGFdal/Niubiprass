@@ -139,6 +139,23 @@ MD5sum: 906d8d0709754a2967bfe50876facf3b
 SHA1: c213428b0e7c72403f29bfd325f4de2d21fe8183
 SHA256: 5256d1fa9fd09cd2abb40cd15f3f3f3839b663327045a852444d8d9ba608c892
 
+Package: com.moxuan.parallelx
+Name: ParallelX
+Description: Minimal iOS 15 RootHide floating app window with a Swift side panel.
+Maintainer: moxuan
+Author: moxuan
+Section: Tweaks
+Depends: mobilesubstrate, preferenceloader, firmware (>= 15.0), firmware (<< 16.0)
+Conflicts: com.m4fn3.myrtle, com.moxuan.myrtleswitcherfix, com.moxuan.moxuansplit
+Architecture: iphoneos-arm64e
+Version: 0.1.0~alpha205
+Installed-Size: 1072
+Filename: debs/com.moxuan.parallelx_0.1.0~alpha205_iphoneos-arm64e.deb
+Size: 270104
+MD5sum: cea72e8a7e2a78b1bd83d9f446f6b234
+SHA1: bd55664b2cc2507809eb65b5c351a644a1abbc3e
+SHA256: 0f83fff6872dfddb9b76d254b6ba2d0549ccc1bf0f4761a476f0c2a7884d875e
+
 Package: com.ntm.notifymanager
 Name: 通知管理
 Version: 2.3.11
