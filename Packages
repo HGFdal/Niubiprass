@@ -31,6 +31,23 @@ MD5sum: 166459fe1e28902af2ca1c6646b7f768
 SHA1: 55695bfceb13ecf6852eba83aea60d98cefa3114
 SHA256: 7ca02cce9e992551914a8d6e0e5094dafe3983e2926c8a9650338bc46f1adad2
 
+Package: com.be-huge.floating-view
+Name: floatingView
+Description: 分屏，不必太复杂，一切从简即可。
+Maintainer: be-huge
+Author: be-huge
+Section: Tweaks
+Depends: dev.theos.orion (>= 1.0.0), firmware (>= 12.2)
+Architecture: iphoneos-arm64e
+Version: 1.6.0-6
+Installed-Size: 3360
+Pre-Depends: rootless-compat(>= 0.9)
+Filename: debs/com.be-huge.floating-view_1.6.0-6_iphoneos-arm64e.deb
+Size: 1771730
+MD5sum: cba48e5bea1e58f68bdb28b3b73e4c23
+SHA1: 0036b0f68922138498230c48df959572383a651a
+SHA256: 7ebdbc67e7d398d824996928358c051d29eb5085e61865b96d23b52dde23fab4
+
 Package: com.bvm.wuzeililiang
 Name: 乌贼本地离线授权
 Description: 乌贼三件套通杀插件，内置 DCrack 离线授权（本地生成、绑定设备、无需激活服务器）
